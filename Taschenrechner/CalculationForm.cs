@@ -20,7 +20,7 @@ namespace Taschenrechner
         }
         private void UpdateRichtextBox()
         {
-            CalculationRichTextBox.Text = calculator.OperationTask.ToString();
+            CalculationRichTextBox.Text = calculator.Expression.ToString();
         }
         private void mcButton_Click(object sender, EventArgs e)
         {
