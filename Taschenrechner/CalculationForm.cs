@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Taschenrechner.Misc;
 namespace Taschenrechner
 {
     public partial class CalculationForm : Form
     {
         private Calculator calculator;
+        private InterceptKeys keyboardHook;
         public CalculationForm()
         {
             InitializeComponent();
             calculator = new Calculator();
+            keyboardHook = new InterceptKeys(ProcessKeyboadInput);
         }
         private void UpdateRichtextBox()
         {
@@ -170,28 +172,47 @@ namespace Taschenrechner
 
         private void zeroButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("0");
-            UpdateRichtextBox();
-
+            AppendOperation("0");
         }
 
         private void dotButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation(".");
-            UpdateRichtextBox();
-
+            AppendOperation(".");
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("+");
-            UpdateRichtextBox();
-
+            AppendOperation("+");
         }
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
             CalculationRichTextBox.Text = calculator.Calculate();
+        }
+        private void AppendOperation(string op)
+        {
+            calculator.AppendOperation("5");
+            UpdateRichtextBox();
+        }
+        private void ProcessKeyboadInput(Keys key)
+        {
+            switch (key)
+            {
+                //case Keys.D0:
+                //case Keys.D1:
+                //case Keys.D2:
+                //case Keys.D3:
+                //case Keys.D4:
+                //case Keys.D5:
+                //case Keys.D6:
+                //case Keys.D7:
+                //case Keys.D8:
+                //case Keys.D9:
+                //    AppendOperation(e.KeyCode.ToString());
+                //    break;
+                //default:
+                //    break;
+            }
         }
     }
 }
