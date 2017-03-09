@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using Taschenrechner.Misc;
 namespace Taschenrechner
@@ -13,13 +14,18 @@ namespace Taschenrechner
     public partial class CalculationForm : Form
     {
         private Calculator calculator;
-        private InterceptKeys keyboardHook;
         public CalculationForm()
         {
             InitializeComponent();
             calculator = new Calculator();
-            keyboardHook = new InterceptKeys(ProcessKeyboadInput);
+
         }
+
+        private void OnKeyInput(object sender, KeyEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void UpdateRichtextBox()
         {
             CalculationRichTextBox.Text = calculator.Expression.ToString();
@@ -77,97 +83,72 @@ namespace Taschenrechner
 
         private void sevenButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("7");
-            UpdateRichtextBox();
-
+           AppendOperation("7");
         }
 
         private void eightButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("8");
-            UpdateRichtextBox();
-
+            AppendOperation("8");
         }
 
         private void nineButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("9");
-            UpdateRichtextBox();
-
+            AppendOperation("9");
         }
 
         private void devideButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("/");
-            UpdateRichtextBox();
-
+            AppendOperation("/");
         }
 
         private void modButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("%");
-            UpdateRichtextBox();
-
+            AppendOperation("%");
         }
 
         private void fourButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("4");
-            UpdateRichtextBox();
-
+            AppendOperation("4");
         }
 
         private void fiveButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("5");
-            UpdateRichtextBox();
-
+            AppendOperation("5");
         }
 
         private void sixButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("6");
-            UpdateRichtextBox();
-
+            AppendOperation("6");
         }
 
         private void multiplyButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("*");
-            UpdateRichtextBox();
-
+            AppendOperation("*");
         }
 
         private void oneDevidXButton_Click(object sender, EventArgs e)
         {
+            AppendOperation("/");
         }
 
         private void oneButton_Click(object sender, EventArgs e)
         {
             calculator.AppendOperation("1");
-            UpdateRichtextBox();
-
         }
 
         private void twoButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("2");
-            UpdateRichtextBox();
-
+            AppendOperation("2");
         }
 
         private void threeButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("3");
-            UpdateRichtextBox();
-
+            AppendOperation("3");
         }
 
         private void minusButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("-");
-            UpdateRichtextBox();
-
+            AppendOperation("-");
         }
 
         private void zeroButton_Click(object sender, EventArgs e)
