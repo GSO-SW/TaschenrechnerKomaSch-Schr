@@ -15,7 +15,7 @@ namespace Taschenrechner.Misc
             //set our callback, which gets called when input accures
             keyboardCallback = callback;
 
-            EventManager.RegisterClassHandler(typeof(System.Windows.Controls.Control), System.Windows.Controls.Control.KeyUpEvent, new KeyEventHandler(OnKeyInput), true);
+          //  EventManager.RegisterClassHandler(typeof(Window), Window.KeyUpEvent, new KeyEventHandler(OnKeyInput), true);
         }
 
         private void OnKeyInput(object sender, KeyEventArgs e)

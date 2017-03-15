@@ -14,16 +14,12 @@ namespace Taschenrechner
     public partial class CalculationForm : Form
     {
         private Calculator calculator;
+        private InterceptKeys keyboardHook;
         public CalculationForm()
         {
             InitializeComponent();
             calculator = new Calculator();
-
-        }
-
-        private void OnKeyInput(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
+            keyboardHook = new InterceptKeys(ProcessKeyboadInput);
         }
 
         private void UpdateRichtextBox()
@@ -63,12 +59,22 @@ namespace Taschenrechner
 
         private void clearEntryButton_Click(object sender, EventArgs e)
         {
-
+            EraseCurrentExpression(true);
         }
-
+        /// <summary>
+        /// Erases the current math expression
+        /// </summary>
+        /// <param name="Ans">If true Ans is erased too</param>
+        private void EraseCurrentExpression(bool Ans = false)
+        {
+            calculator.ClearCurrentExpression();
+            CalculationRichTextBox.Clear();
+            if (Ans)
+                calculator.Ans = 0;
+        }
         private void clearButton_Click(object sender, EventArgs e)
         {
-
+            EraseCurrentExpression();
         }
 
         private void plusMinusButton_Click(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace Taschenrechner
 
         private void oneButton_Click(object sender, EventArgs e)
         {
-            calculator.AppendOperation("1");
+            AppendOperation("1");
         }
 
         private void twoButton_Click(object sender, EventArgs e)
@@ -172,7 +178,7 @@ namespace Taschenrechner
         }
         private void AppendOperation(string op)
         {
-            calculator.AppendOperation("5");
+            calculator.AppendOperation(op);
             UpdateRichtextBox();
         }
         private void ProcessKeyboadInput(Keys key)

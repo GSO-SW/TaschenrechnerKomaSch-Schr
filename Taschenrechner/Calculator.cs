@@ -28,9 +28,12 @@ namespace Taschenrechner
         public void EraseLastOperation()
         {
             if(Expression.Length > 0)
-                Expression.Remove(Expression.Length,1);
+                Expression.Remove(Expression.Length, 1);
         }
-
+        public void ClearCurrentExpression()
+        {
+            Expression.Clear();
+        }
         public string Calculate()
         {
 
