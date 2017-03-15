@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="Calculator.cs" />
     <Compile Include="Misc\KeyboardHook.cs" />
+    <Compile Include="Misc\KeysConverterEx.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CalculationForm.resx">

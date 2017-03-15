@@ -15,11 +15,13 @@ namespace Taschenrechner
     {
         private Calculator calculator;
         private InterceptKeys keyboardHook;
+        private KeysConverterEx keyConverterEx;
         public CalculationForm()
         {
             InitializeComponent();
             calculator = new Calculator();
-            keyboardHook = new InterceptKeys(ProcessKeyboadInput);
+            keyboardHook = new InterceptKeys(this, ProcessKeyboadInput);
+            keyConverterEx = new KeysConverterEx();
         }
 
         private void UpdateRichtextBox()
@@ -172,33 +174,49 @@ namespace Taschenrechner
             AppendOperation("+");
         }
 
-        private void calculateButton_Click(object sender, EventArgs e)
+        private void CalculateCurrentExpression()
         {
             CalculationRichTextBox.Text = calculator.Calculate();
+        }
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            CalculateCurrentExpression();
         }
         private void AppendOperation(string op)
         {
             calculator.AppendOperation(op);
             UpdateRichtextBox();
         }
-        private void ProcessKeyboadInput(Keys key)
+        private void ProcessKeyboadInput(KeyEventArgs keyEvent)
         {
-            switch (key)
+            switch (keyEvent.KeyCode)
             {
-                //case Keys.D0:
-                //case Keys.D1:
-                //case Keys.D2:
-                //case Keys.D3:
-                //case Keys.D4:
-                //case Keys.D5:
-                //case Keys.D6:
-                //case Keys.D7:
-                //case Keys.D8:
-                //case Keys.D9:
-                //    AppendOperation(e.KeyCode.ToString());
-                //    break;
-                //default:
-                //    break;
+                case Keys.D0:
+                case Keys.D1:
+                case Keys.D2:
+                case Keys.D3:
+                case Keys.D4:
+                case Keys.D5:
+                case Keys.D6:
+                case Keys.D7:
+                case Keys.D8:
+                case Keys.D9:
+                case Keys.Add:
+                case Keys.Oemplus:
+                case Keys.OemMinus:               
+                case Keys.Subtract:
+                case Keys.Multiply:
+                case Keys.Divide:
+                    AppendOperation(keyConverterEx.ConvertMathKeyToString(keyEvent.KeyCode));
+                    break;
+                case Keys.Back:
+                    calculator.EraseLastOperation();
+                    break;
+                case Keys.Enter:
+                    CalculateCurrentExpression();
+                    break;
+                default:
+                    break;
             }
         }
     }

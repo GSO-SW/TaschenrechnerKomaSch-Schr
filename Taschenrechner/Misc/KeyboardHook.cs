@@ -8,19 +8,25 @@ namespace Taschenrechner.Misc
 {
     public class InterceptKeys
     {
-        public delegate void KeyboardCallbackDelegate(Keys key);
+        public delegate void KeyboardCallbackDelegate(KeyEventArgs keyEvent);
         private KeyboardCallbackDelegate keyboardCallback;
-        public InterceptKeys(KeyboardCallbackDelegate callback)
+
+        /// <summary>
+        /// Registers the callback KeyUp on the given form
+        /// </summary>
+        /// <param name="form">Form on which the Keyboard input is performed</param>
+        /// <param name="callback">Callback which is called on the input</param>
+        public InterceptKeys(Form form, KeyboardCallbackDelegate callback)
         {
             //set our callback, which gets called when input accures
             keyboardCallback = callback;
-
-          //  EventManager.RegisterClassHandler(typeof(Window), Window.KeyUpEvent, new KeyEventHandler(OnKeyInput), true);
+            form.KeyPreview = true;
+            form.KeyUp += Form_KeyUp;
         }
 
-        private void OnKeyInput(object sender, KeyEventArgs e)
+        private void Form_KeyUp(object sender, KeyEventArgs e)
         {
-            keyboardCallback(e.KeyCode);
+            keyboardCallback(e);
         }
     }
 }
