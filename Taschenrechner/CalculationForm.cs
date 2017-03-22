@@ -201,6 +201,16 @@ namespace Taschenrechner
                 case Keys.D7:
                 case Keys.D8:
                 case Keys.D9:
+                case Keys.NumPad0:
+                case Keys.NumPad1:
+                case Keys.NumPad2:
+                case Keys.NumPad3:
+                case Keys.NumPad4:
+                case Keys.NumPad5:
+                case Keys.NumPad6:
+                case Keys.NumPad7:
+                case Keys.NumPad8:
+                case Keys.NumPad9:
                 case Keys.Add:
                 case Keys.Oemplus:
                 case Keys.OemMinus:               
