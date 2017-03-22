@@ -67,7 +67,7 @@ namespace Taschenrechner
         /// Erases the current math expression
         /// </summary>
         /// <param name="Ans">If true Ans is erased too</param>
-        private void EraseCurrentExpression(bool Ans = false)
+        private void EraseCurrentExpression(bool Ans = false, bool c = false)
         {
             calculator.ClearCurrentExpression();
             CalculationRichTextBox.Clear();
@@ -210,7 +210,7 @@ namespace Taschenrechner
                     AppendOperation(keyConverterEx.ConvertMathKeyToString(keyEvent.KeyCode));
                     break;
                 case Keys.Back:
-                    calculator.EraseLastOperation();
+                    EraseCurrentExpression();
                     break;
                 case Keys.Enter:
                     CalculateCurrentExpression();
