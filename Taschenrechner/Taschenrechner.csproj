@@ -69,6 +69,7 @@
       <DependentUpon>CalculationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Calculator.cs" />
+    <Compile Include="MathParser.cs" />
     <Compile Include="Misc\KeyboardHook.cs" />
     <Compile Include="Misc\KeysConverterEx.cs" />
     <Compile Include="Program.cs" />

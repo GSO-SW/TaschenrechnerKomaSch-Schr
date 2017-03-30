@@ -36,9 +36,11 @@ namespace Taschenrechner
         }
         public string Calculate()
         {
+            MathParser parser = new MathParser();
+            bool isRadians = false;
+            string toCalculate = Expression.ToString();
+            Ans = parser.Parse(toCalculate, isRadians);
 
-            NCalc.Expression e = new NCalc.Expression(Expression.ToString());
-            double.TryParse(e.Evaluate().ToString(), out Ans);
             Expression.Clear();
             Expression.Append(Ans.ToString());
             return Ans.ToString();
