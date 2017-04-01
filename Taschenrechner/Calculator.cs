@@ -12,6 +12,7 @@ namespace Taschenrechner
         public Calculator()
         {
             Expression = new StringBuilder();
+            mathParser = new MathParser();
         }
         /// <summary>
         /// Our current result, of the previous calculation
@@ -21,6 +22,8 @@ namespace Taschenrechner
         /// Your current OperationTask should look like 4 + 4 or 4 + ( 4 * 3 )
         /// </summary>
         public StringBuilder Expression { get; set; }
+        private MathParser mathParser;
+
         public void AppendOperation(string op)
         {
             Expression.Append(op);
@@ -36,10 +39,8 @@ namespace Taschenrechner
         }
         public string Calculate()
         {
-            MathParser parser = new MathParser();
-            bool isRadians = false;
             string toCalculate = Expression.ToString();
-            Ans = parser.Parse(toCalculate, isRadians);
+            Ans = mathParser.Parse(toCalculate, false);
 
             Expression.Clear();
             Expression.Append(Ans.ToString());
