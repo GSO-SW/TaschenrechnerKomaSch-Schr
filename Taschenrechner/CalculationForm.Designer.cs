@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculationForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lpButton = new System.Windows.Forms.Button();
-            this.rpButton = new System.Windows.Forms.Button();
+            this.mcButton = new System.Windows.Forms.Button();
+            this.mrButton = new System.Windows.Forms.Button();
             this.msButton = new System.Windows.Forms.Button();
             this.mPlusButton = new System.Windows.Forms.Button();
             this.mMinusButton = new System.Windows.Forms.Button();
@@ -71,25 +71,25 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lpButton
+            // mcButton
             // 
-            this.lpButton.Location = new System.Drawing.Point(12, 86);
-            this.lpButton.Name = "lpButton";
-            this.lpButton.Size = new System.Drawing.Size(32, 26);
-            this.lpButton.TabIndex = 1;
-            this.lpButton.Text = "(";
-            this.lpButton.UseVisualStyleBackColor = true;
-            this.lpButton.Click += new System.EventHandler(this.lpButton_Click);
+            this.mcButton.Location = new System.Drawing.Point(12, 86);
+            this.mcButton.Name = "mcButton";
+            this.mcButton.Size = new System.Drawing.Size(32, 26);
+            this.mcButton.TabIndex = 1;
+            this.mcButton.Text = "MC";
+            this.mcButton.UseVisualStyleBackColor = true;
+            this.mcButton.Click += new System.EventHandler(this.mcButton_Click);
             // 
-            // rpButton
+            // mrButton
             // 
-            this.rpButton.Location = new System.Drawing.Point(51, 86);
-            this.rpButton.Name = "rpButton";
-            this.rpButton.Size = new System.Drawing.Size(32, 26);
-            this.rpButton.TabIndex = 2;
-            this.rpButton.Text = ")";
-            this.rpButton.UseVisualStyleBackColor = true;
-            this.rpButton.Click += new System.EventHandler(this.rpButton_Click);
+            this.mrButton.Location = new System.Drawing.Point(51, 86);
+            this.mrButton.Name = "mrButton";
+            this.mrButton.Size = new System.Drawing.Size(32, 26);
+            this.mrButton.TabIndex = 2;
+            this.mrButton.Text = "MR";
+            this.mrButton.UseVisualStyleBackColor = true;
+            this.mrButton.Click += new System.EventHandler(this.mrButton_Click);
             // 
             // msButton
             // 
@@ -97,6 +97,7 @@
             this.msButton.Name = "msButton";
             this.msButton.Size = new System.Drawing.Size(32, 26);
             this.msButton.TabIndex = 3;
+            this.msButton.Text = "MS";
             this.msButton.UseVisualStyleBackColor = true;
             this.msButton.Click += new System.EventHandler(this.msButton_Click);
             // 
@@ -106,6 +107,7 @@
             this.mPlusButton.Name = "mPlusButton";
             this.mPlusButton.Size = new System.Drawing.Size(32, 26);
             this.mPlusButton.TabIndex = 4;
+            this.mPlusButton.Text = "M+";
             this.mPlusButton.UseVisualStyleBackColor = true;
             this.mPlusButton.Click += new System.EventHandler(this.mPlusButton_Click);
             // 
@@ -115,6 +117,7 @@
             this.mMinusButton.Name = "mMinusButton";
             this.mMinusButton.Size = new System.Drawing.Size(32, 26);
             this.mMinusButton.TabIndex = 5;
+            this.mMinusButton.Text = "M-";
             this.mMinusButton.UseVisualStyleBackColor = true;
             this.mMinusButton.Click += new System.EventHandler(this.mMinusButton_Click);
             // 
@@ -390,8 +393,8 @@
             this.Controls.Add(this.mMinusButton);
             this.Controls.Add(this.mPlusButton);
             this.Controls.Add(this.msButton);
-            this.Controls.Add(this.rpButton);
-            this.Controls.Add(this.lpButton);
+            this.Controls.Add(this.mrButton);
+            this.Controls.Add(this.mcButton);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -406,8 +409,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button lpButton;
-        private System.Windows.Forms.Button rpButton;
+        private System.Windows.Forms.Button mcButton;
+        private System.Windows.Forms.Button mrButton;
         private System.Windows.Forms.Button msButton;
         private System.Windows.Forms.Button mPlusButton;
         private System.Windows.Forms.Button mMinusButton;

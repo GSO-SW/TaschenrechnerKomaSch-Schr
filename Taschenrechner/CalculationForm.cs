@@ -28,14 +28,14 @@ namespace Taschenrechner
         {
             CalculationRichTextBox.Text = calculator.Expression.ToString();
         }
-        private void lpButton_Click(object sender, EventArgs e)
+        private void mcButton_Click(object sender, EventArgs e)
         {
-            AppendOperation("(");
+
         }
 
-        private void rpButton_Click(object sender, EventArgs e)
+        private void mrButton_Click(object sender, EventArgs e)
         {
-            AppendOperation(")");
+
         }
 
         private void msButton_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace Taschenrechner
 
         private void algRootButton_Click(object sender, EventArgs e)
         {
-            AppendOperation("√(");
+
         }
 
         private void sevenButton_Click(object sender, EventArgs e)
@@ -176,14 +176,7 @@ namespace Taschenrechner
 
         private void CalculateCurrentExpression()
         {
-            try
-            {
-                CalculationRichTextBox.Text = calculator.Calculate();
-            }
-            catch
-            {
-                System.Windows.MessageBox.Show("An error occured, maybe you set the parenthesis wrong.");
-            }
+            CalculationRichTextBox.Text = calculator.Calculate();
         }
         private void calculateButton_Click(object sender, EventArgs e)
         {
